@@ -1,0 +1,56 @@
+﻿@model CreateBannerDto
+@{
+    ViewData["Title"] = "CreateBanner";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Banner</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-area="Default" asp-controller="AdminDashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="AdminBanner" asp-action="Index">Banner</a></li>
+                    <li class="breadcrumb-item">Add Banner</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="card">
+    <div class="card-body">
+
+        <h4 class="card-title">Create Banner</h4>
+        <p class="card-subtitle mb-4">You can create banner on table below.</p>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="exampleInputModel">Title</label>
+                <input type="text" class="form-control" id="exampleInputFeatureName" asp-for="Title" placeholder="Enter Title">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputModel">Description</label>
+                <input type="text" class="form-control" id="exampleInputFeatureName" asp-for="Description" placeholder="Enter Description">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputModel">Video Description</label>
+                <input type="text" class="form-control" id="exampleInputFeatureName" asp-for="VideoDescription" placeholder="Enter Video Description">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputModel">Video Url</label>
+                <input type="text" class="form-control" id="exampleInputFeatureName" asp-for="VideoUrl" placeholder="Enter Video Url">
+            </div>
+            <button type="submit" class="btn btn-primary waves-effect waves-light" href="/Admin/AdminBanner/CreateBanner">Add Banner</button>
+        </form>
+
+    </div> <!-- end card-body-->
+</div> <!-- end card-->

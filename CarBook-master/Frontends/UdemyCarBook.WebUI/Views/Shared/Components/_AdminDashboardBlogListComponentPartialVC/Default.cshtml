@@ -1,0 +1,55 @@
+﻿@model List<ListBlogWithAuthorAndCategoryDto>
+
+<div class="col-xl-6">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title">Blogs</h4>
+            <p class="card-subtitle mb-4 font-size-13">
+                Transaction period from 21 July to 25 Aug
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">Title</th>
+                            <th class="border-top-0">Created Date</th>
+                            <th class="border-top-0">Categorye</th>
+                            <th class="border-top-0">Author</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {   
+                            <tr>
+
+                                <td class="text-truncate"><a href="/Blog/BlogDetail/@item.BlogID">@item.Title</a></td>
+                                <td>
+                                    <span class="badge badge-soft-secondary p-2">@item.AuthorName</span>
+                                </td>
+                                <td class="text-truncate">$@item.CategoryName</td>
+
+                                <td class="text-truncate">$@item.CreatedDate</td>
+
+
+                                @* <td>
+                            <div class="progress" style="height: 6px;">
+                            <div class="progress-bar progress-bar-striped bg-secondary"
+                            role="progressbar" aria-valuenow="85"
+                            aria-valuemin="20" aria-valuemax="100"
+                            style="width:85%"></div>
+                            </div>
+                            </td>
+                            <td class="text-truncate">$ 1200.00</td> *@
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+</div> <!-- end col -->

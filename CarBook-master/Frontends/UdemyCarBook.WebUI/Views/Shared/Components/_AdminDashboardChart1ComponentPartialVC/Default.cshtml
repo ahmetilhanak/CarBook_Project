@@ -1,0 +1,49 @@
+﻿<script src="~/chart.js"></script>
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title d-inline-block">Rent Counts for Year</h4>
+
+            @*             <div style="height: 260px;"></div>
+            *@
+            <canvas id="my1Chart" style="width:100%; height:260px"></canvas>
+            
+
+            <script>
+                var values = document.getElementById('my1Chart').getContext('2d');
+                var myChart = new Chart(values, {
+                    type: 'line',
+                    data: {
+                        labels: ['2019', '2020', '2021', '2022', '2023'],
+                        datasets: [{
+                            label: '',
+                            data: [285, 245, 185, 366, 458],
+                            borderColor: 'rgba(75,192,192,1)',
+                            borderWitdh: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+
+            <div class="row text-center mt-4">
+                <div class="col-6">
+                    <h4>$450.000</h4>
+                    <p class="text-muted mb-0">Last 1 year Income</p>
+                </div>
+                <div class="col-6">
+                    <h4>63</h4>
+                    <p class="text-muted mb-0">Already rented cars</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- end col -->

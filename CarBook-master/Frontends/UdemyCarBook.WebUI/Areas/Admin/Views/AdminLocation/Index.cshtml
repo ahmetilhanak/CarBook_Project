@@ -1,0 +1,89 @@
+﻿@model List<ListLocationDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Locations</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-area="Default" asp-controller="AdminDashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Location</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Location Table</h4>
+                <p class="card-subtitle mb-4">
+                    You can do CRUD operations on that table. Plese keep at least one <i>Location</i> for integrity.
+                </p>
+                <div class="table-responsive">
+                    @if (Model.Count < 1)
+                    {
+                        <p><b>There is no Location yet.Please start creating one.</b></p>
+                    }
+                    else
+                    {
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Location</th>                              
+                                    <th>Delete</th>
+                                    <th>Update</th>
+                                    <th>Open Location</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <script type="text/javascript">
+                                    function confirmDelete() {
+                                        return confirm("Are you sure you want to delete this feature?");
+                                    }
+                                </script>
+
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th scope="row">@count</th>
+                                        <td>@item.Name</td>
+                                        <td><a href="/Admin/AdminLocation/RemoveLocation/@item.LocationID" class="btn btn-outline-danger" onclick="return confirmDelete();">Delete</a></td>
+                                        <td><a href="/Admin/AdminLocation/UpdateLocation/@item.LocationID" class="btn btn-outline-success">Update</a></td>
+                                        <td><a href="/Admin/AdminLocation/UpdateLocation/@item.LocationID" class="btn btn-outline-dark">Open Location</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    <br />
+                    <a href="/Admin/AdminLocation/CreateLocation" class="btn btn-outline-primary">Add New Location</a>
+                </div>
+
+            </div>
+            <!-- end card-body-->
+        </div>
+        <!-- end card -->
+
+    </div>
+    <!-- end col -->
+
+
+
+</div>

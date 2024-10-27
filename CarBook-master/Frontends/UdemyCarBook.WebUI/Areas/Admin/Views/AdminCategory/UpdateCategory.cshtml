@@ -1,0 +1,45 @@
+﻿@model UpdateCategoryDto
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">About</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-area="Default" asp-controller="AdminDashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="AdminCategory" asp-action="Index">Category</a></li>
+                    <li class="breadcrumb-item">Update Category</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="card">
+    <div class="card-body">
+
+        <h4 class="card-title">Update Category</h4>
+        <p class="card-subtitle mb-4">You can Update Category on table below.</p>
+
+        <form method="post">
+            <input type="hidden" asp-for=CategoryID />
+
+            <div class="form-group">
+                <label for="exampleInputModel">Title</label>
+                <input type="text" class="form-control" id="exampleInputFeatureName" asp-for="Name" placeholder="Enter Name">
+            </div>
+
+            <button type="submit" class="btn btn-primary waves-effect waves-light" href="/Admin/AdminCategory/UpdateCategory">Update Category</button>
+        </form>
+
+    </div> <!-- end card-body-->
+</div> <!-- end card-->

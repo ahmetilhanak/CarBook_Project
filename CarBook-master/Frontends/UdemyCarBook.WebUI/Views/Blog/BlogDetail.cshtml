@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "BlogDetail";
+    Layout = "~/Views/UILayout/Index.cshtml";
+    var blogId = (int)ViewData["BlogId"];
+}
+
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+
+            <!-- ======= BlogDetailsMain Section ======= -->
+            @await Component.InvokeAsync("_BlogDetailsMainPartialVC",new{id=blogId})
+            <!-- End BlogDetailsMain Section -->
+          
+            <div class="col-md-4 sidebar ftco-animate">
+
+                <!-- ======= BlogDetailSideBarSearchBox Section ======= -->
+                @await Component.InvokeAsync("_BlogDetailSideBarSearchBoxPartialVC")
+                <!-- End BlogDetailSideBarSearchBox Section -->
+
+
+                <!-- ======= BlogDetailsCategory Section ======= -->
+                @await Component.InvokeAsync("_BlogDetailsCategoryPartialVC")
+                <!-- End BlogDetailsCategory Section -->
+
+
+                <!-- ======= BlogDetailsRecentBlogs Section ======= -->
+                @await Component.InvokeAsync("_BlogDetailsRecentBlogsPartialVC")
+                <!-- End BlogDetailsRecentBlogs Section -->
+
+
+                <!-- ======= BlogDetailsTagCloud Section ======= -->
+                @await Component.InvokeAsync("_BlogDetailsTagCloudPartialVC", new { id = blogId })
+                <!-- End BlogDetailsTagCloud Section -->
+
+
+                <!-- ======= BlogDetailsParagraph Section ======= -->
+                @await Component.InvokeAsync("_BlogDetailsParagraphPartialVC")
+                <!-- End BlogDetailsParagraph Section -->
+
+              
+            </div>
+
+        </div>
+    </div>
+</section> <!-- .section -->

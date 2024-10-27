@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+    
+}
+
+<!-- ======= AboutUs Section ======= -->
+@await Component.InvokeAsync("_AboutUsPartialVM")
+<!-- End AboutUs Section -->
+
+
+<!-- ======= BecomeADriver Section ======= -->
+@await Component.InvokeAsync("_BecomeADriverPartialVM")
+<!-- End BecomeADriver Section -->
+
+
+<!-- ======= Testimonial Section ======= -->
+@await Component.InvokeAsync("_TestimonialPartialVM")
+<!-- End Testimonial Section -->
+
+
+<!-- ======= SectionCounter Section ======= -->
+@await Component.InvokeAsync("_SectionCounterPartialVM")
+<!-- End SectionCounter Section -->
+
+
+
+
+

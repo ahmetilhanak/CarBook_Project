@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ======= Head Section ======= -->
+@await Component.InvokeAsync("_AdminLayoutHeadPartialVC")
+<!-- End Head Section -->
+
+<body>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <!-- ======= Header Section ======= -->
+        @await Component.InvokeAsync("_AdminLayoutHeaderPartialVC")
+        <!-- End Header Section -->
+
+        <!-- ======= LeftSidebar Section ======= -->
+        @await Component.InvokeAsync("_AdminLayoutLeftSideBarPartialVC")
+        <!-- End LeftSidebar Section -->
+            
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">   
+                    @RenderBody()
+                    @* <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                                       
+                            </div>
+                        </div>
+                    </div>   *@             
+                </div> 
+            </div>
+           
+            <!-- ======= Head Section ======= -->
+            @await Component.InvokeAsync("_AdminLayoutFooterPartialVC")
+            <!-- End Head Section -->
+
+        </div>
+        
+
+    </div>
+    <div class="menu-overlay"></div>
+
+    <!-- ======= Scripts Section ======= -->
+    @await Component.InvokeAsync("_AdminLayoutScriptsPartialVC")
+    <!-- End Scripts Section -->
+
+</body>
+
+</html>

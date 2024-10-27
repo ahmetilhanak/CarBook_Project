@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "CarDetail";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<section class="ftco-section ftco-car-details">
+    <div class="container">
+
+        <!-- ======= MainFeature Section ======= -->
+        @await Component.InvokeAsync("_CarDetailMainFeaturePartialVC", new { carId = @ViewBag.CarId })
+        <!-- End MainFeature Section -->
+
+
+        <div class="row">
+            <div class="col-md d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="media-body py-md-4">
+                        <div class="d-flex mb-3 align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-dashboard"></span></div>
+                            <div class="text">
+                                <h3 class="heading mb-0 pl-3">
+                                    Mileage
+                                    <span>40,000</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="media-body py-md-4">
+                        <div class="d-flex mb-3 align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-pistons"></span></div>
+                            <div class="text">
+                                <h3 class="heading mb-0 pl-3">
+                                    Transmission
+                                    <span>Manual</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="media-body py-md-4">
+                        <div class="d-flex mb-3 align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car-seat"></span></div>
+                            <div class="text">
+                                <h3 class="heading mb-0 pl-3">
+                                    Seats
+                                    <span>5 Adults</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="media-body py-md-4">
+                        <div class="d-flex mb-3 align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-backpack"></span></div>
+                            <div class="text">
+                                <h3 class="heading mb-0 pl-3">
+                                    Luggage
+                                    <span>4 Bags</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="media-body py-md-4">
+                        <div class="d-flex mb-3 align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-diesel"></span></div>
+                            <div class="text">
+                                <h3 class="heading mb-0 pl-3">
+                                    Fuel
+                                    <span>Petrol</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 pills">
+                <div class="bd-example bd-example-tabs">
+
+                    
+                    <!-- ======= CarDetailTab Section ======= -->
+                    @await Component.InvokeAsync("_CarDetailTabPanelComponentPartialVM", new { carId = @ViewBag.CarId })
+                    <!-- End CarDetailTab Section -->
+                    
+
+                    <div class="tab-content" id="pills-tabContent">
+                        
+                        <!-- ======= CarDetailFeature Section ======= -->
+                        @await Component.InvokeAsync("_CarDetailCarFeatureByCarIdComponentPartial", new { carId = @ViewBag.CarId })
+                        <!-- End CarDetailFeature Section -->
+
+                        <!-- ======= CarDetailDescription Section ======= -->
+                        @await Component.InvokeAsync("_CarDetailCarDescriptionComponentPartial", new { carId = @ViewBag.CarId })
+                        <!-- End CarDetailDescription Section -->
+
+                        <!-- ======= CarDetailCommentsByCarId Section ======= -->
+                        @await Component.InvokeAsync("_CarDetailCommentsByCarIdPartialVC", new { carId = @ViewBag.CarId })
+                        <!-- End CarDetailCommentsByCarId Section -->
+
+                    
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

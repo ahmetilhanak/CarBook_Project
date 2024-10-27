@@ -1,0 +1,124 @@
+﻿@model ListBannerDto
+@{
+    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    var actionName = ViewContext.RouteData.Values["action"].ToString();
+    var pathNameOfController = "";
+    var pathNameOfAction = "";
+    var bigTitle = "";
+    var classActiveName = "active";
+
+    if (controllerName == "About")
+    {
+
+        pathNameOfController = "About Us";
+        bigTitle = "About Us";
+
+    }
+    else if (controllerName == "Services")
+    {
+        pathNameOfController = "Services";
+        bigTitle = "Our Services";
+
+    }
+    else if (controllerName == "Pricing")
+    {
+        pathNameOfController = "Pricing";
+        bigTitle = "Pricing";
+
+    }
+    else if (controllerName == "Cars")
+    {
+        pathNameOfController = "Cars";
+        bigTitle = "Choose Your Car";
+
+    }
+    else if (controllerName == "Blog")
+    {
+        pathNameOfController = "Blog";
+
+        if (actionName != "Index")
+        {
+            pathNameOfAction = "Blog Single";
+            bigTitle = "Read our blog";
+        }
+        else
+        {
+            bigTitle = "Our Blog";
+        }
+       
+    }
+    else if (controllerName == "Contact")
+    {
+        pathNameOfController = "Contact";
+        bigTitle = "Contact Us";
+
+    }
+    else if (controllerName == "RentACarList")
+    {
+        pathNameOfController = "Rent A Car List";
+        bigTitle = "Rent A Car";
+
+    }
+    else if (controllerName == "Reservation")
+    {
+        pathNameOfController = "Reservation";
+        bigTitle = "Reservation Form";
+
+    }
+    else
+    {
+        pathNameOfController = controllerName;
+        bigTitle = controllerName;
+    }
+}
+
+
+
+@if (controllerName == "Home")
+{
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('/carbook-master/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+                <div class="col-lg-8 ftco-animate">
+                    <div class="text w-100 text-center mb-md-5 pb-md-5">
+                        <h1 class="mb-4">@Model.Title</h1>
+                        <p style="font-size: 18px;">@Model.Description</p>
+                        <a href="@Model.VideoUrl" target="_blank" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="ion-ios-play"></span>
+                            </div>
+                            <div class="heading-title ml-5">
+                                <span>@Model.VideoDescription</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/carbook-master/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+                <div class="col-md-9 ftco-animate pb-5">
+                    
+                    @if (actionName == "Index")
+                    {
+                        <p class="breadcrumbs"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>@pathNameOfController <i class="ion-ios-arrow-forward"></i></span></p>
+                    }else
+                    {
+                        <p class="breadcrumbs"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a asp-controller="Blog" asp-action="Index">@pathNameOfController <i class="ion-ios-arrow-forward"></i></a></span> <span>@pathNameOfAction <i class="ion-ios-arrow-forward"></i></span></p>
+                    }
+                    <h1 class="mb-3 bread">@bigTitle</h1>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+

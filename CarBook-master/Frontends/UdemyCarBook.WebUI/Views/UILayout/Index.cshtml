@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+  
+   <!-- ======= Head Section ======= -->
+   @await Component.InvokeAsync("_HeadPartialVC")
+   <!-- End Head Section -->
+
+  <body>
+      
+   <!-- ======= Nav Section ======= -->
+   @await Component.InvokeAsync("_NavbarPartialVC")
+   <!-- End Nav Section -->
+
+   <!-- ======= MainCover Section ======= -->
+   @await Component.InvokeAsync("_MainCoverPartialVC")
+   <!-- End MainCover Section -->
+          
+   @RenderBody()
+   
+   <!-- ======= Footer Section ======= -->
+   @await Component.InvokeAsync("_FooterPartialVC")
+   <!-- End Footer Section -->
+  
+   <!-- ======= Scripts Section ======= -->
+   @await Component.InvokeAsync("_ScriptsPartialVC")
+   <!-- End Scripts Section -->
+
+
+    
+  </body>
+</html>

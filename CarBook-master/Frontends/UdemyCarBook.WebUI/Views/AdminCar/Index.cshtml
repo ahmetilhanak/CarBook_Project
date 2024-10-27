@@ -1,0 +1,93 @@
+﻿@model List<ResultCarWithBrandsDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Cars</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-controller="AdminDashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Cars</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Cars Table</h4>
+                <p class="card-subtitle mb-4">
+                    You can do CRUD operations on that table. 
+                </p>
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Brand</th>
+                                <th>Model</th>
+                                <th>Transmission</th>
+                                <th>Km</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                                <th>Details</th>
+                                <th>Add Feature</th>
+                                <th>On Website</th>
+                                <th>Prices</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <script type="text/javascript">
+                                function confirmDelete() {
+                                    return confirm("Are you sure you want to delete this feature?");
+                                }
+                            </script>
+                            @foreach(var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <th scope="row">@count</th>
+                                    <td>@item.BrandName</td>
+                                    <td>@item.Model</td>
+                                    <td>@item.Transmission</td>
+                                    <td>@item.Km</td>
+                                    <td><a asp-controller="AdminCar" asp-action="RemoveCar" asp-route-id="@item.CarID" class="btn btn-outline-danger" onclick="return confirmDelete();">Delete</a></td>
+                                    <td><a asp-controller="AdminCar" asp-action="UpdateCar" asp-route-id="@item.CarID" class="btn btn-outline-success">Update</a></td>
+                                    <td><a asp-area="Admin" asp-controller="AdminCarFeatureDetail" asp-action="Index" asp-route-id="@item.CarID" class="btn btn-outline-dark">Details</a></td>
+                                    <td><a asp-area="Admin" asp-controller="AdminCarFeatureDetail" asp-action="CreateFeatureByCarId" asp-route-id="@item.CarID" class="btn btn-outline-info">Add Feature</a></td>
+                                    <td><a asp-controller="Cars" asp-action="CarDetail" asp-route-id="@item.CarID" class="btn btn-outline-warning">See On Website</a></td>
+                                    <td><a asp-controller="AdminCar" asp-action="CarDetail" asp-route-id="@item.CarID" class="btn btn-outline-secondary">Price Info</a></td>
+                                   
+                                </tr>
+                            }         
+                        </tbody>
+                    </table>
+                    <br />
+                    <a asp-controller="AdminCar" asp-action="CreateCar" class="btn btn-outline-primary">Add New Car</a>
+                </div>
+
+            </div>
+            <!-- end card-body-->
+        </div>
+        <!-- end card -->
+
+    </div>
+    <!-- end col -->
+
+
+    
+</div>
+

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<!-- ======= RentACarListFilter Section ======= -->
+@await Component.InvokeAsync("_RentACarListFilterPartialVC")
+<!-- End FeaturedCar Section -->
+
+
+<!-- ======= FeaturedCar Section ======= -->
+@await Component.InvokeAsync("_VehiclePartialVC")
+<!-- End FeaturedCar Section -->
+
+
+<!-- ======= AboutUs Section ======= -->
+@await Component.InvokeAsync("_AboutUsPartialVM")
+<!-- End AboutUs Section -->
+
+
+<!-- ======= Services Section ======= -->
+@await Component.InvokeAsync("_ServicesPartialVM")
+<!-- End Services Section -->
+
+
+<!-- ======= BecomeADriver Section ======= -->
+@await Component.InvokeAsync("_BecomeADriverPartialVM")
+<!-- End BecomeADriver Section -->
+
+
+<!-- ======= Testimonial Section ======= -->
+@await Component.InvokeAsync("_TestimonialPartialVM")
+<!-- End Testimonial Section -->
+
+
+<!-- ======= RecentBlog Section ======= -->
+@await Component.InvokeAsync("_RecentBlogPartialVC")
+<!-- End RecentBlog Section -->
+
+
+<!-- ======= SectionCounter Section ======= -->
+@await Component.InvokeAsync("_SectionCounterPartialVM")
+<!-- End SectionCounter Section -->
+

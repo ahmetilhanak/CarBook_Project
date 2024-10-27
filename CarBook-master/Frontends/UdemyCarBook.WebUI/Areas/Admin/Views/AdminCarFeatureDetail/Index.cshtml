@@ -1,0 +1,135 @@
+﻿@model List<GetCarFeatureByCarIdDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0 font-size-18">Categories</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-area="Default" asp-controller="AdminDashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active">CarFeature</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Car Feature List</h4>
+                <p class="card-subtitle mb-4">
+                    You can on/off for <i>Car Features</i>.
+                </p>
+                <form method="post" >
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <div class="form-check">
+                            <input  type="hidden" asp-for="@Model[i].CarFeatureID"/>
+                            <input  type="hidden" asp-for="@Model[i].FeatureName"/>
+                            <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input"/>
+                            <label class="form-check-label" for="@Model[i].Available">@Model[i].FeatureName</label>
+                        </div>
+                    }
+                    <br />
+                    <button type="submit" class="btn btn-success" asp-area="Admin" asp-controller="AdminCarFeatureDetail" asp-action="Index">Save Changes</button>
+                </form>
+            </div>
+            <!-- end card-body-->
+        </div>
+        <!-- end card -->
+
+    </div>
+    <!-- end col -->
+
+
+
+</div>
+
+@* 
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Avability</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FeatureName</td>
+                @if (item.Available)
+                {
+                    <td>
+                        <span style="color:green">✔</span>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <span style="color:red">X</span>
+                    </td>
+                }
+
+            </tr>
+
+        }
+
+
+    </tbody>
+
+</table>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Avability</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @ViewBag.featureNames)
+        {
+            <tr>
+                <td>@item</td>
+
+                @for (var i = 0; i < Model.Count; i++)
+                {
+                    if (@Model[i].FeatureName == item)
+                    {
+                        if (@Model[i].Available)
+                        {
+                            <td>
+                                <span style="color:green">✔</span>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <span style="color:red">X</span>
+                            </td>
+                        }
+                    };
+                }
+
+            </tr>
+
+        }
+
+
+    </tbody>
+
+</table> *@

@@ -1,0 +1,51 @@
+﻿@model List<GetCarPricingWithTimePeriodDto>
+
+<div class="col-xl-6">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title">Car Pricings</h4>
+            
+            <div class="table-responsive">
+                <table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">Brand</th>
+                            <th class="border-top-0">Model</th>
+                            <th class="border-top-0">Daily Price</th>
+                            <th class="border-top-0">Weekly Price</th>
+                            <th class="border-top-0">Mountly Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model){
+                            <tr>
+                                <img hidden src="@item.imageUrl" />
+                                <td>
+                                    <span class="badge badge-soft-secondary p-2">@item.Brand</span>
+                                </td>
+                                <td class="text-truncate">@item.Model</td>
+                                <td class="text-truncate">$@item.DailyAmount</td>
+                                <td class="text-truncate">$@item.WeeklyAmount</td>
+                                <td class="text-truncate">$@item.MonthlyAmount</td>
+                                
+                                @* <td>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar progress-bar-striped bg-secondary"
+                                             role="progressbar" aria-valuenow="85"
+                                             aria-valuemin="20" aria-valuemax="100"
+                                             style="width:85%"></div>
+                                    </div>
+                                </td>
+                                <td class="text-truncate">$ 1200.00</td> *@
+                            </tr>
+                        }
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+</div> <!-- end col -->

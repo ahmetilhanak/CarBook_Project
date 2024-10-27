@@ -1,0 +1,34 @@
+﻿@model BlogByIdWithAuthorAndCategoryDto
+<div class="col-md-8 ftco-animate">
+
+    <h2 class="mb-3">@Model.Title</h2>
+    <p>@Model.Description</p>
+    <p>
+        <img src="@Model.CoverImageUrl" alt="" class="img-fluid">
+    </p>
+
+    <!-- ======= BlogDetailsCloudTagByBlog Section ======= -->
+    @await Component.InvokeAsync("_BlogDetailsCloudTagByBlogPartialVC",new{id=Model.BlogID})
+    <!-- End BlogDetailsCloudTagByBlog Section -->
+
+
+    <!-- ======= BlogDetailsAuthorAbout Section ======= -->
+    @await Component.InvokeAsync("_BlogDetailsAuthorAboutPartialVC", new { id = Model.BlogID})
+    <!-- End BlogDetailsAuthorAbout Section -->
+
+
+
+    <div class="pt-5 mt-5">
+        
+        <!-- ======= CommentListByBlog Section ======= -->
+        @await Component.InvokeAsync("_CommentListByBlogPartialVC", new { blogId = Model.BlogID })
+        <!-- End CommentListByBlog Section -->
+
+        <!-- ======= AddComment Section ======= -->
+        @await Component.InvokeAsync("_AddCommentPartialVC", new { blogId = Model.BlogID })
+        <!-- End AddComment Section -->
+      
+        
+    </div>
+
+</div> 
